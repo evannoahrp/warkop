@@ -50,4 +50,4 @@ if __name__ == '__main__':
     #    'unit_id': '2',
     #    'price_per_unit': '5000'
     #}))
-    print(delete_product(connection, 14))
+    print(delete_product(connection, 14))   

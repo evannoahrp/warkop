@@ -8,3 +8,4 @@ def hello():
 
 if __name__ == "__name__":
     print("Starting Python Flask Server For Warkop System")
+    app.run(port = 5000)
