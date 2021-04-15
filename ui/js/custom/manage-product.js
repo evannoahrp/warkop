@@ -64,11 +64,11 @@ var productModal = $("#productModal");
 
     productModal.on('show.bs.modal', function(){
         //JSON data by API call
-        $.get(uomListApiUrl, function (response) {
+        $.get(unitsListApiUrl, function (response) {
             if(response) {
                 var options = '<option value="">--Select--</option>';
-                $.each(response, function(index, uom) {
-                    options += '<option value="'+ uom.uom_id +'">'+ uom.uom_name +'</option>';
+                $.each(response, function(index, units) {
+                    options += '<option value="'+ units.unit_id +'">'+ units.unit_name +'</option>';
                 });
                 $("#uoms").empty().html(options);
             }
