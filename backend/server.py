@@ -1,11 +1,18 @@
 from flask import Flask, request, jsonify
+import products_dao
+from sql_connection import get_sql_conncetion
 
 app = Flask(__name__)
 
-@app.route('/hello')
-def hello():
-    return "Hello, how are you?"
+connection = get_sql_conncetion()
 
-if __name__ == "__name__":
+@app.route('/getProducts', methods = ['GET'])
+def get_products():
+    products = products_dao.get_all_products(connection)
+    response = jsonify(products)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    return response
+
+if __name__ == "__main__":
     print("Starting Python Flask Server For Warkop System")
     app.run(port = 5000)

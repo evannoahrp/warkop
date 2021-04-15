@@ -1,6 +1,6 @@
 from sql_connection import get_sql_conncetion
 
-def get_all_product(connection):
+def get_all_products(connection):
 
     cursor = connection.cursor()
 
@@ -44,10 +44,10 @@ def delete_product(connection, product_id):
 
 if __name__ == '__main__':
     connection = get_sql_conncetion()
-    #print(get_all_product(connection))
+    print(get_all_products(connection))
     #print(insert_new_product(connection, {
     #    'product_name': 'jahe',
     #    'unit_id': '2',
     #    'price_per_unit': '5000'
     #}))
-    print(delete_product(connection, 14))   
+    # print(delete_product(connection, 14))
