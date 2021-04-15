@@ -6,9 +6,9 @@ var productModal = $("#productModal");
             if(response) {
                 var table = '';
                 $.each(response, function(index, product) {
-                    table += '<tr data-id="'+ product.product_id +'" data-name="'+ product.name +'" data-unit="'+ product.uom_id +'" data-price="'+ product.price_per_unit +'">' +
+                    table += '<tr data-id="'+ product.product_id +'" data-name="'+ product.name +'" data-unit="'+ product.unit_id +'" data-price="'+ product.price_per_unit +'">' +
                         '<td>'+ product.name +'</td>'+
-                        '<td>'+ product.uom_name +'</td>'+
+                        '<td>'+ product.unit_name +'</td>'+
                         '<td>'+ product.price_per_unit +'</td>'+
                         '<td><span class="btn btn-xs btn-danger delete-product">Delete</span></td></tr>';
                 });
@@ -23,7 +23,7 @@ var productModal = $("#productModal");
         var data = $("#productForm").serializeArray();
         var requestPayload = {
             product_name: null,
-            uom_id: null,
+            unit_id: null,
             price_per_unit: null
         };
         for (var i=0;i<data.length;++i) {
@@ -32,8 +32,8 @@ var productModal = $("#productModal");
                 case 'name':
                     requestPayload.product_name = element.value;
                     break;
-                case 'uoms':
-                    requestPayload.uom_id = element.value;
+                case 'unit':
+                    requestPayload.unit_id = element.value;
                     break;
                 case 'price':
                     requestPayload.price_per_unit = element.value;
